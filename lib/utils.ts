@@ -4,6 +4,7 @@ import { twMerge } from "tailwind-merge";
 import qs from "query-string";
 
 import { UrlQueryParams, RemoveUrlQueryParams } from "@/types";
+import { strings } from "@/constants/strings";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -100,6 +101,11 @@ export function removeKeysFromQuery({
 }
 
 export const handleError = (error: unknown) => {
-  console.error(error);
-  throw new Error(typeof error === "string" ? error : JSON.stringify(error));
+  if (error && typeof error === "object" && Object.keys(error).length > 0) {
+    console.error(error);
+    throw new Error(typeof error === "string" ? error : JSON.stringify(error));
+  } else {
+    console.error(strings.error.defaultErrorMessage);
+    throw new Error(strings.error.defaultErrorMessage);
+  }
 };
