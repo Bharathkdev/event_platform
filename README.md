@@ -18,12 +18,15 @@ Built on Next.js 14, the events application stands as a comprehensive, full-stac
 
 - Node.js
 - Next.js
+- Mongoose
+- MongoDB
 - TypeScript
 - TailwindCSS
 - Stripe
 - Zod
 - React Hook Form
 - Shadcn
+- Clerk
 - uploadthing
 
 ## <a name="features">🔋 Features</a>
@@ -68,8 +71,8 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://github.com/your-username/your-project.git
-cd your-project
+git clone https://github.com/Bharathkdev/event_platform.git
+cd event_platform
 ```
 
 **Installation**
@@ -82,7 +85,7 @@ npm install
 
 **Set Up Environment Variables**
 
-Create a new file named `.env` in the root of your project and add the following content:
+Create a new file named `.env.local` in the root of your project and add the following content:
 
 ```env
 #NEXT
