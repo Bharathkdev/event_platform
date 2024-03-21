@@ -136,6 +136,7 @@ export async function getAllEvents({
   try {
     await connectToDatabase();
 
+    // searching for titles that match the query string in a case-insensitive manner.
     const titleCondition = query
       ? { title: { $regex: query, $options: "i" } }
       : {};

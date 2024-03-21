@@ -23,7 +23,6 @@ import { strings } from "@/constants/strings";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Checkbox } from "@/components/ui/checkbox";
-import { CheckedState } from "@radix-ui/react-checkbox";
 import { useUploadThing } from "@/lib/uploadthing";
 import { useRouter } from "next/navigation";
 import { handleError } from "@/lib/utils";
@@ -39,13 +38,13 @@ type EventFormProps = {
 
 const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
   const [files, setFiles] = useState<File[]>([]);
-  const [isFreeTicket, setIsFreeTicket] = useState<CheckedState>(false);
   const initialFormValues =
     event && type === "Update"
       ? {
           ...event,
           startDateTime: new Date(event.startDateTime),
           endDateTime: new Date(event.endDateTime),
+          categoryId: event.category?._id || "",
         }
       : eventDefaultValues;
   const router = useRouter();
@@ -58,13 +57,9 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
   });
 
   useEffect(() => {
-    // Check if isFreeTicket changed to true, update price to 0
-    if (isFreeTicket) {
-      form.setValue("price", "0");
-    }
-  }, [isFreeTicket, form]);
+    form.reset();
+  }, []);
 
-  // 2. Define a submit handler.
   const onSubmit = async (values: z.infer<typeof eventFormSchema>) => {
     let uploadedImageUrl = values.imageUrl;
 
@@ -84,7 +79,6 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
           path: "/profile",
         });
         if (newEvent) {
-          form.reset();
           router.push(`/events/${newEvent._id}`);
         }
       } catch (error) {
@@ -105,7 +99,6 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
           path: `/event/${eventId}`,
         });
         if (updatedEvent) {
-          form.reset();
           router.push(`/events/${updatedEvent._id}`);
         }
       } catch (error) {
@@ -305,7 +298,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
                       {...field}
                       value={field.value}
                       onChange={(value) => field.onChange(value)}
-                      disabled={isFreeTicket ? true : false}
+                      disabled={form.getValues("isFree") ? true : false}
                       min={1}
                       className="p-regular-16 border-0 
                     bg-grey-50 outline-offset-0  focus:border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
@@ -334,7 +327,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
                                 className="mr-2 h-5 w-5 border-2 border-primary-500"
                                 checked={field.value}
                                 onCheckedChange={(ischecked) => {
-                                  setIsFreeTicket(ischecked);
+                                  form.setValue("price", "0");
                                   field.onChange(ischecked);
                                 }}
                               />

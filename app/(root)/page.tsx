@@ -4,12 +4,19 @@ import { strings } from "@/constants/strings";
 import Link from "next/link";
 import Collection from "@/components/shared/Collection";
 import { getAllEvents } from "@/lib/actions/event.actions";
+import Search from "@/components/shared/Search";
+import { SearchParamProps } from "@/types";
+import CategoryFilter from "@/components/shared/CategoryFilter";
 
-const Home = async () => {
+const Home = async ({ searchParams }: SearchParamProps) => {
+  const page = Number(searchParams?.page) || 1;
+  const searchText = (searchParams?.query as string) || "";
+  const category = (searchParams?.category as string) || "";
+
   const events = await getAllEvents({
-    query: "",
-    category: "",
-    page: 1,
+    query: searchText,
+    category,
+    page: page,
     limit: 6,
   });
 
@@ -43,7 +50,8 @@ const Home = async () => {
         </h2>
 
         <div className="flex flex-col w-full gap-5 md:flex-row">
-          Search CategoryFilter
+          <Search />
+          <CategoryFilter />
         </div>
         <Collection
           data={events?.data}
@@ -51,8 +59,8 @@ const Home = async () => {
           emptyStateSubtext={strings.Home.emptyCollectionSubtitle}
           collectionType="All_Events"
           limit={6}
-          page={1}
-          totalPages={2}
+          page={page}
+          totalPages={events?.totalPages}
         />
       </section>
     </>

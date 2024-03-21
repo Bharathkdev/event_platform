@@ -81,21 +81,38 @@ export function formUrlQuery({ params, key, value }: UrlQueryParams) {
   );
 }
 
+// Function to remove keys from query string
 export function removeKeysFromQuery({
   params,
   keysToRemove,
 }: RemoveUrlQueryParams) {
+  //example params: "https://example.com/products?category=electronics&color=blue&price=100";
+
+  /**
+   * Example currentUrl
+    {
+      category: "electronics",
+      color: "blue",
+      price: "100"
+    }
+  */
   const currentUrl = qs.parse(params);
 
+  // Iterate through keys to remove
   keysToRemove.forEach((key) => {
+    // Delete the key from the parsed query object
     delete currentUrl[key];
   });
 
+  // Stringify the updated query object into a URL-encoded query string
   return qs.stringifyUrl(
     {
+      // Base URL path
       url: window.location.pathname,
+      // Updated query object
       query: currentUrl,
     },
+    // Skip null or undefined values during stringification
     { skipNull: true }
   );
 }

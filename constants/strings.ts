@@ -8,6 +8,9 @@ export const strings = {
     trustedByEventsTitleTwo: "thousands of Events",
     emptyCollectionTitle: "No Events Found!",
     emptyCollectionSubtitle: "Come back later",
+    categorySelectorAll: "All",
+    paginationPreviousButton: "Previous",
+    paginationNextButton: "Next",
   },
   CreateEvent: {
     createEventTitle: "Create Event",

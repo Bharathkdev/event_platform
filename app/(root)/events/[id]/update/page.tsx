@@ -1,7 +1,6 @@
 import EventForm from "@/components/shared/EventForm";
 import { strings } from "@/constants/strings";
 import { getEventById } from "@/lib/actions/event.actions";
-import { UpdateEventParams } from "@/types";
 import { auth } from "@clerk/nextjs";
 import React from "react";
 
