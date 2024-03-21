@@ -27,6 +27,10 @@ export const strings = {
   EventDetails: {
     isFree: "FREE",
     descriptionTitle: "What You'll Learn:",
+    noTicketsTitle: "Sorry, tickets are no longer available.",
+    getTicketsButton: "Get Tickets",
+    getTicketButton: "Get Ticket",
+    buyTicketButton: "Buy Ticket",
   },
   EventCard: {
     orderDetailsTitle: "Order Details",

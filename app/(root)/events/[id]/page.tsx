@@ -8,6 +8,7 @@ import Image from "next/image";
 import { strings } from "@/constants/strings";
 import { formatDateTime } from "@/lib/utils";
 import Collection from "@/components/shared/Collection";
+import CheckoutButton from "@/components/shared/CheckoutButton";
 
 const EventDetails = async ({
   params: { id },
@@ -55,6 +56,8 @@ const EventDetails = async ({
                 </p>
               </div>
             </div>
+
+            <CheckoutButton event={event} />
 
             <div className="flex flex-col gap-5">
               <div className="flex gap-2 md:gap-3">
