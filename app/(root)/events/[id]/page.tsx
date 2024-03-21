@@ -112,7 +112,6 @@ const EventDetails = async ({
           emptyTitle={strings.Home.emptyCollectionTitle}
           emptyStateSubtext={strings.Home.emptyCollectionSubtitle}
           collectionType="All_Events"
-          limit={3}
           page={searchParams.page as string}
           totalPages={relatedEvents?.totalPages}
         />

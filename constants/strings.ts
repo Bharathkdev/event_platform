@@ -11,6 +11,7 @@ export const strings = {
     categorySelectorAll: "All",
     paginationPreviousButton: "Previous",
     paginationNextButton: "Next",
+    footerText: "2024 Evently. All Rights reserved.",
   },
   CreateEvent: {
     createEventTitle: "Create Event",

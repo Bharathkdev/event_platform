@@ -4,9 +4,13 @@ import { headerLinks } from "@/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import { SheetClose } from "../ui/sheet";
 
-const NavItems = () => {
+const NavItems = ({ withSheetClose }: { withSheetClose?: boolean }) => {
   const pathName = usePathname();
+  const [SheetCloseWrapper, sheetCloseWrapperProps] = withSheetClose
+    ? [SheetClose, { asChild: true }]
+    : [React.Fragment, {}];
 
   return (
     <ul className="md:flex-between flex w-full flex-col items-start gap-5 md:flex-row">
@@ -20,7 +24,9 @@ const NavItems = () => {
               isActive && "text-primary-500"
             } flex-center p-medium-16 whitespace-nowrap`}
           >
-            <Link href={link.route}>{link.label}</Link>
+            <SheetCloseWrapper {...sheetCloseWrapperProps} key={link.label}>
+              <Link href={link.route}>{link.label}</Link>
+            </SheetCloseWrapper>
           </li>
         );
       })}

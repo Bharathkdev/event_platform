@@ -1,3 +1,4 @@
+import { strings } from "@/constants/strings";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,7 +15,7 @@ const Footer = () => {
           />
         </Link>
 
-        <p>2024 Evently. All Rights reserved.</p>
+        <p>{strings.Home.footerText}</p>
       </div>
     </footer>
   );

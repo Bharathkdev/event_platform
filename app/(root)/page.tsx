@@ -58,7 +58,6 @@ const Home = async ({ searchParams }: SearchParamProps) => {
           emptyTitle={strings.Home.emptyCollectionTitle}
           emptyStateSubtext={strings.Home.emptyCollectionSubtitle}
           collectionType="All_Events"
-          limit={6}
           page={page}
           totalPages={events?.totalPages}
         />
