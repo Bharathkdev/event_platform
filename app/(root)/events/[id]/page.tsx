@@ -73,7 +73,7 @@ const EventDetails = async ({
                     {formatDateTime(event.startDateTime).timeOnly}
                   </p>
                   <p>
-                    &nbsp;{formatDateTime(event.endDateTime).dateOnly} -&nbsp;
+                    {formatDateTime(event.endDateTime).dateOnly} -&nbsp;
                     {formatDateTime(event.endDateTime).timeOnly}
                   </p>
                 </div>
