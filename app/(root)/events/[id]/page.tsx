@@ -30,7 +30,7 @@ const EventDetails = async ({
             alt="hero image"
             width={1000}
             height={500}
-            className="h-full min-h-[300px] object-cover object-center"
+            className="h-full min-h-[300px] bg-slate-950 object-contain object-center"
           />
 
           <div className="flex w-full flex-col gap-8 p-5 md:p-10">
@@ -95,8 +95,10 @@ const EventDetails = async ({
                 {strings.EventDetails.descriptionTitle}
               </p>
               <p className="p-medium-16 lg:p-regular-18">{event.description}</p>
-              <p className="p-medium-16 lg:p-regular-18 truncate text-primary-500 underline">
-                {event.url}
+              <p className="p-medium-16 lg:p-regular-18 text-primary-500 underline">
+                <a href={event.url} target="_blank" rel="noreferrer">
+                  {event.url}
+                </a>
               </p>
             </div>
           </div>
