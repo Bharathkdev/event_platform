@@ -30,7 +30,7 @@ const Home = async ({ searchParams }: SearchParamProps) => {
               {strings.Home.introSubtitle}
             </p>
             <Button size="lg" asChild className="button w-full sm:w-fit">
-              <Link href="#events">{strings.Home.exploreButton}</Link>
+              <Link href="#eventsList">{strings.Home.exploreButton}</Link>
             </Button>
           </div>
           <Image
@@ -43,7 +43,10 @@ const Home = async ({ searchParams }: SearchParamProps) => {
         </div>
       </section>
 
-      <section className="wrapper my-8 flex flex-col gap-8 md:gap-12">
+      <section
+        id="eventsList"
+        className="wrapper my-8 flex flex-col gap-8 md:gap-12"
+      >
         <h2 className="h2-bold">
           {strings.Home.trustedByEventsTitleOne} <br />{" "}
           {strings.Home.trustedByEventsTitleTwo}
