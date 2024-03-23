@@ -2,6 +2,8 @@
   <h3 align="center">A Full Stack Next 14 Events App</h3>
 </div>
 
+![alt text](public/assets/images/Evently.png)
+
 ## 📋 <a name="table">Table of Contents</a>
 
 1. 🤖 [Introduction](#introduction)
