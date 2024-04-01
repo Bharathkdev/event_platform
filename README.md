@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://evently-platform.netlify.app/" align="center">A Full Stack Next 14 Events App</h3>
+  <a href="https://evently-platform.netlify.app/" align="center" target="_blank" rel="noreferrer">A Full Stack Next 14 Events App</h3>
 </div>
 
 ![alt text](public/assets/images/Evently.png)
