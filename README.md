@@ -118,7 +118,7 @@ NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
 
 Replace the placeholder values with your actual credentials
 
-**Running the Project** 
+**Running the Project**
 
 ```bash
 npm start
