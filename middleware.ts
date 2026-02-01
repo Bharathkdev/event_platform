@@ -19,6 +19,8 @@ export default authMiddleware({
 });
 
 export const config = {
+  // Use Node.js runtime instead of Edge Runtime
+  runtime: "nodejs",
   // Protects all routes, including api/trpc.
   // See https://clerk.com/docs/references/nextjs/auth-middleware
   // for more information about configuring your Middleware
