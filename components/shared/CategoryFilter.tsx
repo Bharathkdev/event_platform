@@ -65,7 +65,7 @@ const CategoryFilter = () => {
         {categories.map((category) => (
           <SelectItem
             value={category.name}
-            key={category._id}
+            key={category._id.toString()}
             className="select-item p-regular-14"
           >
             {category.name}
